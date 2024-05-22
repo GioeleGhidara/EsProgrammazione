@@ -93,7 +93,7 @@ void Quadrilateral::Init() {
 	SetSides(0.,0.,0.,0.);
 	tarea = new TextArea;
 	tarea->size = 0;
-	tarea->string[SLEN] = NULL;
+	tarea->string[SLEN] = '\0';
 }
 
 

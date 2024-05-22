@@ -14,7 +14,7 @@
                 "${fileDirname}\\CRectangle.cpp",
                 "${fileDirname}\\CRhombus.cpp",
                 "${fileDirname}\\CRhombus.h",
-                "${fileDirname}\\StrucTextArea.h",
+                "${fileDirname}\\StructTextArea.h",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
