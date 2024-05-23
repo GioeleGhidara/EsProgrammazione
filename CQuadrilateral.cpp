@@ -11,7 +11,7 @@ Quadrilateral::Quadrilateral() {
 } 
 
 /// @brief constructor 
-/// ta a struct of type TextArea with infos on text and font size
+/// @param ta a struct of type TextArea with infos on text and font size
 Quadrilateral::Quadrilateral(TextArea ta) {
 
 	cout << "Quadrilateral - constructor - textarea" << endl;
@@ -24,7 +24,7 @@ Quadrilateral::Quadrilateral(TextArea ta) {
 	{
 		Init();
 		tarea->size = ta.size;
-		tarea->string[SLEN] = ta.string[SLEN];
+		strcpy_s(tarea->string, ta.string);
 	}
 	
 } 
@@ -75,7 +75,7 @@ Quadrilateral& Quadrilateral::operator=(const Quadrilateral &o) {
 
 /// @brief overload of operator == 
 /// @param o reference to the object on the right side of the operator 
-/// @return always false 
+/// @return true if all sides, font size and text are equal 
 bool Quadrilateral::operator==(const Quadrilateral &o) {
 
 	if (sides[0] == o.sides[0] && sides[1] == o.sides[1] && sides[2] == o.sides[2] && sides[3] == o.sides[3])
@@ -88,12 +88,14 @@ bool Quadrilateral::operator==(const Quadrilateral &o) {
 
 
 /// @brief default initialization of the object
+/// @param t default text to be written in the object
 void Quadrilateral::Init() {
 	
 	SetSides(0.,0.,0.,0.);
+	char t[] = "\0";
 	tarea = new TextArea;
 	tarea->size = 0;
-	tarea->string[0] = '\0';
+	strcpy_s(tarea->string, t);
 }
 
 
@@ -107,7 +109,7 @@ void Quadrilateral::Init(const Quadrilateral &o) {
 	sides[2] = o.sides[2]; 
 	sides[3] = o.sides[3];
 	tarea->size = o.tarea->size;
-	tarea->string[SLEN] = o.tarea->string[SLEN];
+	strcpy_s(tarea->string, o.tarea->string);
 	
 }
 
@@ -156,21 +158,21 @@ void Quadrilateral::GetSides(float &s0, float &s1, float &s2, float &s3) {
 /// @param ta a struct of type TextArea to be filled
 void Quadrilateral::GetTextArea(TextArea &ta) {
 	
-	ta = *tarea; // da provare
+	ta = *tarea;
 } 
 
 /// @brief get the text of the text area 
 /// @param text the string used in the text area 
 void Quadrilateral::GetText(char* text) {
 	
-	text = tarea->string; // da provare
+	text = tarea->string;
 }
 
 /// @brief get the font size of the text area 
 /// @return the font size
 unsigned int Quadrilateral::GetFontSize() {
 	
-	return tarea->size; // da provare
+	return tarea->size;
 }
 
 
@@ -178,14 +180,15 @@ unsigned int Quadrilateral::GetFontSize() {
 /// @param ta a struct of type TextArea filled with a text and a font size
 void Quadrilateral::SetTextArea(TextArea ta) {
 
-	*tarea = ta;
+	tarea->size = ta.size;
+	strcpy_s(tarea->string, ta.string);
 }
 
 /// @brief set the text of the text area 
-/// @param text the text 
+/// @param text the text to be written in the shape
 void Quadrilateral::SetText(char* text) {
 
-	*tarea->string = *text;
+	strcpy_s(tarea->string, text);
 }
 
 /// @brief set the font size of the text area 

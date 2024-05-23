@@ -41,8 +41,25 @@ Rhombus::Rhombus(float dL, float dS) {
 /// @param ta struct of type TextArea
 Rhombus::Rhombus(float dL, float dS, TextArea ta) {
 
+	Init();
 
+	cout << "Rhombus - constructor" << endl;
 
+	if (dL <= 0. || dS <= 0.) {
+		WarningMessage("constructor: diagonals should be > 0");
+		SetDim(0, 0);
+	}
+	else
+		SetDim(dL, dS);
+	if (ta.size <= 0)
+	{
+		WarningMessage("constructor: font size should be > 0");
+	}
+	else
+	{
+		tarea->size = ta.size;
+		strcpy_s(tarea->string, ta.string);
+	}
 }
 
 /// @brief destructor 
@@ -54,7 +71,7 @@ Rhombus::~Rhombus() {
 }
 
 /// @brief copy constructor 
-/// @param o reference to the object that should be copied 
+/// @param r reference to the object that should be copied 
 Rhombus::Rhombus(const Rhombus &r) { 
 
 	cout << "Rhombus - copy constructor" << endl;
@@ -64,7 +81,7 @@ Rhombus::Rhombus(const Rhombus &r) {
 }
 
 /// @brief overload of operator = 
-/// @param o reference to the object on the right side of the operator 
+/// @param r reference to the object on the right side of the operator 
 /// @return reference to the object on the left side of the operator 
 Rhombus& Rhombus::operator=(const Rhombus &r) { 
 
@@ -78,7 +95,7 @@ Rhombus& Rhombus::operator=(const Rhombus &r) {
 
 /// @brief overload of operator == 
 /// @param r reference to the object on the right side of the operator 
-/// @return true if the two objects have the same width and the same length  
+/// @return true if the two objects have the same diagonals, the same text in them and the same font size  
 bool Rhombus::operator==(const Rhombus &r) { 
 
 	if (r.diagL == diagL && r.diagS == diagS && tarea->size == r.tarea->size && tarea->string == r.tarea->string)
@@ -90,7 +107,7 @@ bool Rhombus::operator==(const Rhombus &r) {
 /// @brief default initialization of the object
 void Rhombus::Init() {
 	SetDim(0,0);
-	
+	Quadrilateral::Init();
 }
 
 
@@ -100,6 +117,8 @@ void Rhombus::Init(const Rhombus &r) {
 		
 	Init();
 	SetDim(r.diagL,r.diagS);
+	tarea->size = r.tarea->size;
+	strcpy_s(tarea->string, r.tarea->string);
 	
 }
 
@@ -107,12 +126,12 @@ void Rhombus::Init(const Rhombus &r) {
 void Rhombus::Reset() {
 	
 	SetDim(0,0);
-	
+	Quadrilateral::Reset();
 }
 
 
 /// @brief set longer diagonal of the object
-/// @param d diagonal 
+/// @param d diagonal (longer)
 void Rhombus::SetDiagL(float d) {
 
 	if (d < 0.) {
@@ -125,7 +144,7 @@ void Rhombus::SetDiagL(float d) {
 } 
 
 /// @brief set shorter diagonal of the object
-/// @param d diagonal 
+/// @param d diagonal (shorter)
 void Rhombus::SetDiagS(float d) {
 
 	if (d < 0.) {
@@ -235,12 +254,15 @@ void Rhombus::Dump() {
 }
 
 
-/// @brief to draw a rhombus
+/// @brief to draw a rhombus with informations about it
 void Rhombus::Drawing() {
 	
-	cout << "il rombo disegnato ha area: " << GetArea() << endl;
+	cout << endl;
+	cout << "il rombo disegnato ha digonali: " << diagL << " " << diagS << endl;
+	cout << "ha area: " << GetArea() << endl;
 	cout << "ha perimetro: " << GetPerimeter() << endl;
-	cout << "viene usato il font " << tarea->string << " con grandezza " << tarea->size << endl;
+	cout << "dentro ha scritto " << tarea->string << " con grandezza " << tarea->size << endl;
+	cout << endl;
 }
 
 

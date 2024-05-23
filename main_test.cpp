@@ -49,14 +49,14 @@ int main() {
 
 	Show();
 	
+	
 	rectA.SetFontSize(20);
 	rectC=rectA;
 	rectB.SetTextArea(a2);
 	rhoB.SetText(t3);
 	
-	
 	Show();
-
+	
 
 	return 0;
 

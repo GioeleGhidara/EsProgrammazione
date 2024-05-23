@@ -7,6 +7,7 @@
 
 #ifndef QUADRILATERAL_H
 #define QUADRILATERAL_H
+#define _CRT_SECURE_NO_WARNINGS
 
 #include<iostream> 
 #include "StructTextArea.h"
