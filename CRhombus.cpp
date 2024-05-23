@@ -240,7 +240,7 @@ void Rhombus::Drawing() {
 	
 	cout << "il rombo disegnato ha area: " << GetArea() << endl;
 	cout << "ha perimetro: " << GetPerimeter() << endl;
-	cout << "viene usato il font " << tarea->string << "con grandezza " << tarea->size << endl;
+	cout << "viene usato il font " << tarea->string << " con grandezza " << tarea->size << endl;
 }
 
 
