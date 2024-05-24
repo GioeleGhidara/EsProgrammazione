@@ -219,8 +219,7 @@ void Rectangle::Drawing() {
 	
 	cout << endl;
 	cout << "il rettangolo disegnato ha lati: " << endl;
-	cout << width << endl;
-	cout << height << endl;
+	cout << width << height << endl;
 	cout << "ha area: " << endl;
 	cout << GetArea() << endl;
 	cout << "ha perimetro: " << endl;

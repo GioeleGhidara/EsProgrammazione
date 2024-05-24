@@ -259,9 +259,8 @@ void Rhombus::Dump() {
 void Rhombus::Drawing() {
 	
 	cout << endl;
-	cout << "il rombo disegnato ha lati: " << endl;
-	cout << diagL << endl;
-	cout << diagS << endl;
+	cout << "il rombo disegnato ha diagonali: " << endl;
+	cout << diagL << diagS << endl;
 	cout << "ha area: " << endl;
 	cout << GetArea() << endl;
 	cout << "ha perimetro: " << endl;
