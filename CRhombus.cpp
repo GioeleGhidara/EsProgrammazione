@@ -5,6 +5,7 @@
 ///
 
 #include<iostream> 
+#include <string.h>
 #include<cmath>
 #include "CRhombus.h"
 
@@ -58,7 +59,7 @@ Rhombus::Rhombus(float dL, float dS, TextArea ta) {
 	else
 	{
 		tarea->size = ta.size;
-		strcpy_s(tarea->string, ta.string);
+		strcpy(tarea->string, ta.string);
 	}
 }
 
@@ -258,9 +259,13 @@ void Rhombus::Dump() {
 void Rhombus::Drawing() {
 	
 	cout << endl;
-	cout << "il rombo disegnato ha digonali: " << diagL << " " << diagS << endl;
-	cout << "ha area: " << GetArea() << endl;
-	cout << "ha perimetro: " << GetPerimeter() << endl;
+	cout << "il rombo disegnato ha lati: " << endl;
+	cout << diagL << endl;
+	cout << diagS << endl;
+	cout << "ha area: " << endl;
+	cout << GetArea() << endl;
+	cout << "ha perimetro: " << endl;
+	cout << GetPerimeter() << endl;
 	cout << "dentro ha scritto " << tarea->string << " con grandezza " << tarea->size << endl;
 	cout << endl;
 }
