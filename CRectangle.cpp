@@ -218,12 +218,9 @@ void Rectangle::ErrorMessage(const char *string) {
 void Rectangle::Drawing() {
 	
 	cout << endl;
-	cout << "il rettangolo disegnato ha lati: " << endl;
-	cout << width << height << endl;
-	cout << "ha area: " << endl;
-	cout << GetArea() << endl;
-	cout << "ha perimetro: " << endl;
-	cout << GetPerimeter() << endl;
+	cout << "il rettangolo disegnato ha lati: " << width << " " << height << endl;
+	cout << "ha area: " << GetArea() << endl;
+	cout << "ha perimetro: " << GetPerimeter() << endl;
 	cout << "dentro ha scritto " << tarea->string << " con grandezza " << tarea->size << endl;
 	cout << endl;
 }

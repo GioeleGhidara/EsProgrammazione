@@ -4,6 +4,8 @@
 #include "CQuadrilateral.h"
 #include "CRectangle.h"
 #include "CRhombus.h"
+#include "ListQuad.h"
+
 
 const int LISTL=6; 
 
