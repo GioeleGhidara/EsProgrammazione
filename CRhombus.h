@@ -4,11 +4,10 @@
 	Details.
 */
 
-
 #ifndef RHOMBUS_H
 #define RHOMBUS_H
 
-#include<iostream>
+#include <iostream>
 
 #include "CQuadrilateral.h"
 
@@ -19,65 +18,61 @@ using namespace std;
 class Rhombus : public Quadrilateral
 {
 protected:
-
 	float diagL;
 	float diagS;
-	
+
 	/// @name PURE VIRTUAL FUNCTIONS - IMPLEMENTATION
 	/// @{
 	float Area();
 	/// @}
 
 public:
-	
 	/// @name CONSTRUCTORS/DESTRUCTOR
 	/// @{
 	Rhombus();
-	Rhombus(float dL, float dS); 
+	Rhombus(float dL, float dS);
 	Rhombus(float dL, float dS, TextArea ta);
 	Rhombus(const Rhombus &r);
-	
+
 	~Rhombus();
 	/// @}
-	
+
 	/// @name OPERATORS
 	/// @{
-	Rhombus& operator=(const Rhombus &r); 
+	Rhombus &operator=(const Rhombus &r);
 	bool operator==(const Rhombus &r);
 	/// @}
-	
+
 	/// @name BASIC HANDLING
 	/// @{
-	void Init();												
-	void Init(const Rhombus &r);							
-	void Reset();												
+	void Init();
+	void Init(const Rhombus &r);
+	void Reset();
 	/// @}
-	
-	
+
 	/// @name GETTERS / SETTERS
 	/// @{
 	void SetDiagL(float d);
 	void SetDiagS(float d);
 	void SetDim(float dL, float dS);
-	
+
 	void GetDim(float &dL, float &dS);
 	float GetDiagL();
 	float GetDiagS();
-	float GetSide();	
+	float GetSide();
 	/// @}
-	
+
 	/// @name PURE VIRTUAL FUNCTIONS - IMPLEMENTATION
 	/// @{
 	void Drawing();
 	/// @}
-	
-	/// @name DEBUG and SERIALIZATION 
+
+	/// @name DEBUG and SERIALIZATION
 	/// @{
-	void ErrorMessage(const char *string); 
+	void ErrorMessage(const char *string);
 	void WarningMessage(const char *string);
 	void Dump();
 	/// @}
-		
 };
 
 #endif
